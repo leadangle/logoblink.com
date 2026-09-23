@@ -1,0 +1,145 @@
+# backend:
+  # name: git-gateway
+  # branch: master
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    label_singular: 'Post'
+    folder: "src/content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Layout", name: layout, widget: hidden, default: post}
+      - {label: "Title", name: title, widget: string}
+      - {label: "Slug", name: permalink, widget: string }
+      - {label: "Publish Date", name: "date", widget: datetime}
+      - {label: "Description", name: "description", widget: text, required: false}
+      - {label: "Featured Image", name: image, widget: image, required: false}
+      - {label: "Body", name: body, widget: markdown, required: false}
+
+      - label: "Categories"
+        name: categories
+        widget: list
+        field:
+          label: 'Category'
+          name: slug
+          widget: relation
+          collection: categories
+          searchFields: [title, slug]
+          valueField: slug
+          displayFields: ["title"]
+          required: false
+      - {label: "Tags", name: tags, widget: list, required: false}
+
+  - name: categories
+    label: 'Categories'
+    label_singular: 'Category'
+    folder: 'src/content/categories'
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - {label: 'Title', name: title, widget: string}
+      - label: 'Slug'
+        name: slug
+        widget: string
+        hint: 'Used for permalink'
+        pattern: ['^([a-z0-9-]+)$', 'Only lowercase letters, numbers and digits allowed']
+
+      - label: 'Parent'
+        name: parent
+        widget: relation
+        collection: categories
+        searchFields: ['title']
+        valueField: slug
+        displayFields: ['title']
+        required: false
+
+      - {label: 'Description', name: description, widget: text, hint: 'Used for OpenGraph and SEO', required: false}
+
+  - name: pages
+    label: 'Pages'
+    label_singular: 'Page'
+    create: true
+    folder: src/content/pages
+    fields:
+      - {label: "Title", name: title, widget: string}
+      - {label: "Permalink", name: permalink, widget: string }
+      - {label: "Publish Date", name: date, widget: datetime}
+      - {label: "Description", name: description, widget: text, required: false}
+      - {label: "Featured Image", name: image, widget: image, required: false}
+      - {label: "Body", name: body, widget: markdown, required: false}
+
+  - name: settings
+    label: 'Settings'
+    editor:
+      preview: false
+    files:
+      - name: header
+        label: 'Header'
+        file: 'src/settings/header.yml'
+        fields:
+          - name: logo
+            label: 'Logo'
+            widget: image
+            required: false            
+
+          - name: navigation
+            label: 'Navigation'
+            widget: list
+            fields:
+              - label: 'Label'
+                name: label
+                widget: string
+              - label: 'Category'
+                name: category
+                widget: relation
+                collection: categories
+                searchFields: ['title']
+                valueField: slug
+                displayFields: ['title']
+          - name: page_nav
+            label: 'Page navigation'
+            widget: list
+            fields:
+              - label: 'Label'
+                name: label
+                widget: string
+              - label: 'Path'
+                name: path
+                widget: relation
+                collection: pages
+                searchFields: ['title']
+                valueField: permalink
+                displayFields: ['title']
+
+      - name: slider
+        label: 'Homepage slider'
+        file: 'src/settings/slider.yml'
+        fields:
+          - name: slides
+            label: 'Slide'
+            widget: list
+            fields:
+              - label: 'Post'
+                name: post
+                widget: relation
+                collection: posts
+                searchFields: ['title']
+                valueField: permalink
+                displayFields: ['title']
+      - name: footer
+        label: 'Footer'
+        file: 'src/settings/footer.yml'
+        fields:
+          - name: copyright
+            label: 'Copyright content'
+            widget: text
+          - name: credits
+            label: 'Credits content'
+            widget: text

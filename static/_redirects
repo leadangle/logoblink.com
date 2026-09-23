@@ -1,0 +1,4 @@
+/:year/:month/:date/:slug   /:slug
+/sources/guidelines/        /guidelines/
+/app/uploads/*              /img/:splat
+/wp-content/uploads/*       /img/:splat

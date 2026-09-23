@@ -1,0 +1,25 @@
+logo: /img/logo-design-blog-logoblink.png
+navigation:
+  - category: case-studies
+    label: Case Studies
+  - category: copycats
+    label: Copycats
+  - category: fun
+    label: Fun
+  - category: guidelines
+    label: Guidelines
+  - category: inspiration
+    label: Inspiration
+  - category: logo-sets
+    label: Logo sets
+  - category: news
+    label: News
+  - category: tips-tricks
+    label: Tips & Tricks
+page_nav:
+  - label: Logo design
+    path: /why-a-company-needs-a-logo-design/
+  - label: Logo Polls
+    path: /logo-design-polls/
+  - label: Logo Books
+    path: /logo-design-books/

@@ -1,0 +1,23 @@
+# Project dependencies
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
+.cache/
+# Build directory
+public/
+static/admin/*.bundle.*
+.DS_Store
+yarn-error.log
+
+# IDE
+.vscode
+# dotenv
+.env
+.env.*
+!.env.example
+
+# netlify-cli
+.netlify
+
+# dev content dirs
+/src/content/posts-*
+

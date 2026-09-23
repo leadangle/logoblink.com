@@ -1,0 +1,183 @@
+/** ------------------------------------------------------------
+  ##  TAILWIND CSS
+  --------------------------------------------------------- */
+
+  @tailwind preflight;
+  @tailwind components;
+  @tailwind utilities;
+  
+  /** ------------------------------------------------------------
+    ##  Project CSS
+    --------------------------------------------------------- */
+* {
+  box-sizing: border-box;  
+}
+
+body {
+  line-height: 1.35;
+}
+
+[type='text'],
+[type='password'],
+[type='number'],
+[type='search'],
+[type='email'],
+[type='tel'],
+textarea,
+select {
+  @apply rounded border px-5 py-3;
+  @apply bg-grey-light border-grey-light;
+  @apply outline-none;
+}
+
+.wrapper {
+  @apply bg-grey-darkest text-grey-darkest;
+  background-image: url('../img/line.png');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+}
+
+a {
+  @apply text-true-black;
+  /* @apply no-underline; */
+  
+  transition: all 200ms ease-in-out;
+}
+
+a:hover, a:focus {
+  @apply no-underline text-brand;
+}
+
+h1, h2, h3 {
+  @apply font-serif font-normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply mb-4;
+}
+
+p {
+  @apply mb-4;
+}
+
+.gatsby-resp-image-wrapper {
+  @apply mb-4;
+}
+
+.gatsby-resp-image-figcaption {
+  text-align: center;
+}
+
+.section-title {
+  @apply uppercase border-b py-2 mb-4;
+}
+
+@screen lg {
+  .intro-slider .swiper-container {
+    height: 340px;
+  }
+}
+
+.gatsby-resp-image-wrapper {}
+
+.pagination a {
+  @apply text-grey-dark;
+  height: 100%;
+}
+
+.pagination a:hover,
+.pagination a:focus {
+  @apply text-red-lighter;
+}
+
+.pagination svg {
+  display: block;
+  width: 1.375rem;
+  height: 1.375rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.pagination .active a {
+  @apply text-brand;
+}
+
+@screen xs {
+  .headroom {
+    top: 0;
+    left: 0;
+    right: 0;
+    zIndex: 1;
+  }
+  .headroom--unfixed {
+    position: relative;
+    transform: translateY(0);
+  }
+  .headroom--scrolled {
+    transition: transform 200ms ease-in-out;
+  }
+  .headroom--unpinned {
+    position: fixed;
+    transform: translateY(-100%);
+  }
+  .headroom--pinned {
+    position: fixed;
+    transform: translateY(0%);
+  }
+}
+
+.taglist > li {
+  margin-left: .25em;
+}
+
+.taglist > li::after {
+  content: ',';
+  display: inline-block;
+}
+
+.taglist > li:last-child::after {
+  display: none;
+}
+
+.dfp-unit {
+  @apply my-4;
+}
+
+.dfp-unit:first-child {
+  @apply mt-0;
+}
+
+.dfp-unit:last-child {
+  @apply mb-0;
+}
+
+/* @screen md-max {
+  .dfp-unit > div {
+    di
+  }
+} */
+
+[data-google-query-id] {
+  @apply text-center;
+}
+
+[id^="google_ads_iframe_"] > iframe {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#disqus_thread {
+}
+
+.stretched-link::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: auto;
+  content: "";
+  background-color: rgba(0,0,0,0);
+}
