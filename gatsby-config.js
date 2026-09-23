@@ -24,17 +24,7 @@ const plugins = [
   'gatsby-plugin-postcss',
   `gatsby-plugin-styled-components`,
   `gatsby-plugin-layout`,
-  {
-    resolve: 'gatsby-plugin-prefetch-google-fonts',
-    options: {
-      fonts: [
-        {
-          family: `Bitter`,
-          subsets: [`latin`],
-        },
-      ],
-    }, 
-  },
+  
   {
     resolve: `@entr/gatsby-plugin-netlify-cms-paths`,
     options: {
