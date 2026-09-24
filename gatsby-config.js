@@ -1,7 +1,6 @@
 
 
 process.env.BRANCH = process.env.BRANCH || 'master'
-
 // ensures ACTIVE_ENV env var is set.
 // this is managed in netlify.toml during deployment
 process.env.ACTIVE_ENV = process.env.ACTIVE_ENV || process.env.NODE_ENV
@@ -251,12 +250,6 @@ const plugins = [
           url: node => node.fields.slug,
         },
       },
-    }
-  },
-  {
-    resolve: `gatsby-plugin-netlify-cache`,
-    options: {
-      cachePublic: true,
     }
   },
 ]
