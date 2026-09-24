@@ -14,6 +14,7 @@ import FigureComponent from './figureComponent'
 CMS.registerPreviewTemplate('blog', BlogPostPreview)
 CMS.registerEditorComponent(FigureComponent)
 
+/*
 const config = {
   backend: {
     name: 'gitlab',
@@ -21,6 +22,14 @@ const config = {
     auth_type: 'implicit',
     branch: process.env.GATSBY_GIT_BRANCH,
     app_id: process.env.GATSBY_GITLAB_APPID || '',
+  },
+}*/
+
+const config = {
+  backend: {
+    name: 'github',
+    repo: process.env.GATSBY_GITHUB_REPO,
+    branch: process.env.GATSBY_GIT_BRANCH,
   },
 }
 
